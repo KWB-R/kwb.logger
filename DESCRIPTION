@@ -1,11 +1,16 @@
 Package: kwb.logger
-Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
-Imports: kwb.datetime, kwb.utils, qmrparser, XML
-Author: Hauke Sonnenberg
 Version: 0.2.0
-License: MIT + file LICENSE
 Title: Functions to read measurement data from logger files
 Description: Functions to read measurement data from logger files.
-RoxygenNote: 6.0.1
+Authors@R: c(person("Hauke", "Sonnenberg", , "hauke.sonnenberg@kompetenz-wasser.de", role = c("aut", "cre")),
+             person("Kompetenzzentrum Wasser Berlin gGmbH", role = c("cph")))
+Imports: kwb.datetime, kwb.utils, qmrparser, XML
+Remotes: 
+   github::kwb-r/datetime,
+   github::kwb-r/kwb.utils
 Suggests: 
     testthat
+License: MIT + file LICENSE
+RoxygenNote: 6.0.1
+URL: https://github.com/KWB-R/kwb.logger
+BugReports: https://github.com/KWB-R/kwb.logger/issues
