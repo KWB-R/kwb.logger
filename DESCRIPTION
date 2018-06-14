@@ -6,7 +6,7 @@ Authors@R: c(person("Hauke", "Sonnenberg", , "hauke.sonnenberg@kompetenz-wasser.
              person("Kompetenzzentrum Wasser Berlin gGmbH", role = c("cph")))
 Imports: kwb.datetime, kwb.utils, qmrparser, XML
 Remotes: 
-   github::kwb-r/datetime,
+   github::kwb-r/kwb.datetime,
    github::kwb-r/kwb.utils
 Suggests: 
     testthat
