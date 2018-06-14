@@ -7,3 +7,5 @@ License: MIT + file LICENSE
 Title: Functions to read measurement data from logger files
 Description: Functions to read measurement data from logger files.
 RoxygenNote: 6.0.1
+Suggests: 
+    testthat
