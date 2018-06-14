@@ -1,0 +1,85 @@
+Datum;Uhrzeit;Ereignis;Fuellmenge;Flasche;Probe;Akku;
+31.05.2013;14:47:52;Power Off
+
+31.05.2013;14:51:43;Power On;SW V1.61;HW V2.00
+31.05.2013;14:51:53;Power Off
+
+31.05.2013;14:52:02;Power On;SW V1.61;HW V2.00
+
+ORI BasicEx1 TU Berlin;20120054
+31.05.2013;14:52:40;Programm Start;;;; 12,7;  0;  0;
+Programmart       :  Z
+Flaschenvolumen   : 1000 ml
+Anzahl Flaschen   : 2
+Ablaufzeit        : 0 h 20 min
+Probenabstand     : 15 min
+Programm Startart : NORMAL
+;;;;;; 12,7;  0;  0;
+
+
+31.05.2013;14:52:40;Flaschenwechsel;    0,0;;;
+31.05.2013;14:56:35;Power Off
+
+31.05.2013;14:56:40;Power On;SW V1.61;HW V2.00
+
+ORI BasicEx1 TU Berlin;20120054
+31.05.2013;14:56:58;Programm Start;;;; 12,7;  0;  0;
+Programmart       :  Z
+Flaschenvolumen   : 1000 ml
+Anzahl Flaschen   : 2
+Ablaufzeit        : 0 h 20 min
+Probenabstand     : 15 min
+Programm Startart : NORMAL
+;;;;;; 12,7;  0;  0;
+
+
+31.05.2013;14:56:58;Flaschenwechsel;    0,0;;;
+31.05.2013;14:58:14;Power Off
+
+31.05.2013;14:59:42;Power On;SW V1.61;HW V2.00
+
+ORI BasicEx1 TU Berlin;20120054
+31.05.2013;15:00:03;Programm Start;;;; 13,3;  0;  0;
+Programmart       :  Z
+Flaschenvolumen   : 1000 ml
+Anzahl Flaschen   : 2
+Ablaufzeit        : 0 h 20 min
+Probenabstand     : 15 min
+Programm Startart : NORMAL
+;;;;;; 13,3;  0;  0;
+
+
+31.05.2013;15:00:03;Flaschenwechsel;    0,0;;;
+31.05.2013;15:50:59;Bluetooth;;;; 13,2;  0;  0;
+31.05.2013;15:51:32;Probe; 1000,0;  1;   1; 12,4;  0;  0;
+31.05.2013;16:00:59;Flaschenwechsel; 1000,0;;;
+31.05.2013;16:06:35;Probe; 1000,0;  2;   1; 12,4;  0;  0;
+
+31.05.2013;16:10:59;Programm Ende; 1000,0;;;
+
+ORI BasicEx1 TU Berlin;20120054
+31.05.2013;16:10:59;Programm Start;;;; 0,2;  0;  0;
+Programmart       :  Z
+Flaschenvolumen   : 1000 ml
+Anzahl Flaschen   : 5
+Ablaufzeit        : 2 h 30 min
+Probenabstand     : 30 min
+Programm Startart : NORMAL
+;;;;;; 0,2;  0;  0;
+
+
+31.05.2013;16:10:59;Flaschenwechsel;    0,0;;;
+31.05.2013;16:11:36;Probe; 1000,0;  3;   1; 12,4;  0;  0;
+31.05.2013;16:40:59;Flaschenwechsel; 1000,0;;;
+31.05.2013;16:41:36;Probe; 1000,0;  4;   1; 12,4;  0;  0;
+31.05.2013;17:10:59;Flaschenwechsel; 1000,0;;;
+31.05.2013;17:11:36;Probe; 1000,0;  5;   1; 12,5;  0;  0;
+31.05.2013;17:40:59;Flaschenwechsel; 1000,0;;;
+31.05.2013;17:41:36;Probe; 1000,0;  6;   1; 12,4;  0;  0;
+31.05.2013;18:10:59;Flaschenwechsel; 1000,0;;;
+31.05.2013;18:11:36;Probe; 1000,0;  7;   1; 12,4;  0;  0;
+
+31.05.2013;18:40:59;Programm Ende; 1000,0;;;
+31.05.2013;18:40:59;Power Off
+
+01.06.2013;11:24:37;Power On;SW V1.61;HW V2.00

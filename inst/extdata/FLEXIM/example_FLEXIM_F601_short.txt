@@ -1,0 +1,56 @@
+
+::::::::::::::::::::::::::::::::::::
+\SOURCE=empfangene Daten[05] (V5.98)
+DEVICE           : F 601  -06012239
+MODE             : STORED
+NAME             : SCANDATA
+CHAN             : 1 (A:)
+START            : 09.09.2013  12:25:25
+\COMMENTS
+\PARAMS
+Para.Satz        :
+Meﬂstelle Nr.:   : A:1
+Rohr             :
+ Auﬂendurchmesser:     226,0 mm
+ Wanddicke       :       6,5 mm
+ Rauhigkeit      :       0,1 mm
+ Rohrmaterial    : Stahl (Normal)
+ c-Material      :    3230,0 m/s
+Auskleidung      : OHNE AUSKLEIDUNG
+Medium           : Wasser
+ c-Medium     MIN:    1454,7 m/s
+ c-Medium     MAX:    1454,7 m/s
+ kin. Viskosit‰t :      1,23 mm2/s
+ Dichte          :      1,00 g/cm3
+ Medientemperatur:        12 C
+ Mediendruck     :      6,50 bar
+Sensortyp        : CDM1NZ725491
+Schallweg        :         2 NUM
+Sensorabstand    :     123,0 mm
+D‰mpfung         :        10 s
+Ablagerate       :  00:00:01 SAMPLES
+Profile corr.    : ON
+Meﬂgrˆﬂe         : Volumenstrom
+Maﬂeinheit       : [m3/h]/[m3]
+AnzahlMesswerte  : 3194
+
+\DATA
+\*	DATE_TIME	MEASURE	SSPEED	GAIN	SCNR	SNR	VARIAMP	VARITIME	ERRBITS	
+\#		[m3/h]	[m/s]	[dB]	[dB]	[dB]	[%]	[%]	[bits]	
+A	09.09.2013 12:25:25	122,76	1509,68	85	40	23	0	0	0	
+A	09.09.2013 12:25:26	122,76	1509,68	85	40	23	0	0	0	
+A	09.09.2013 13:18:31	177,15	1509,88	85	40	30	0	0	0	
+A	09.09.2013 13:18:32	174,71	1509,76	85	40	29	0	0	0	
+A	09.09.2013 13:18:33	173,56	1509,76	85	40	29	0	0	0	
+A	09.09.2013 13:18:34	167,40	1509,65	85	40	29	0	0	0	
+A	09.09.2013 13:18:35	164,32	1509,57	85	41	29	0	0	0	
+A	09.09.2013 13:18:36	159,45	1509,48	85	41	30	0	0	0	
+A	09.09.2013 13:18:37	154,19	1509,48	85	41	30	0	0	0	
+A	09.09.2013 13:18:38	151,24	1509,42	85	40	29	0	0	0	
+\END
+
+\END_OF_SET[5]
+------------------------------------
+
+
+
