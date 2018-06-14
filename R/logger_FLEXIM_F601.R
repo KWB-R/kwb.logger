@@ -41,7 +41,7 @@ readLogger_FLEXIM_F601 <- function(
 {
   #.defaultTimeFormat <- kwb.logger:::.defaultTimeFormat
   #.parser_FLEXIM_F601 <- kwb.logger:::.parser_FLEXIM_F601
-  #kwb.logger:::assignArgumentDefaults(readLogger_FLEXIM_F601)
+  #kwb.utils:::assignArgumentDefaults(readLogger_FLEXIM_F601)
   locale_old <- Sys.setlocale("LC_ALL", "C")
   options_old <- options(kwb.debug = dbg)
   

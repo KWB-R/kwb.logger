@@ -86,7 +86,7 @@ readLogger_InSituInc_Aquatroll <- function(
   tz = "Etc/GMT+1", maxRowToLookForHeader = 700, model = "", dbg = FALSE
 )
 {
-  #kwb.logger:::assignArgumentDefaults(kwb.logger::readLogger_InSituInc_Aquatroll)
+  #kwb.utils:::assignArgumentDefaults(kwb.logger::readLogger_InSituInc_Aquatroll)
   
   # Set default header pattern
   headerPattern <- kwb.utils::defaultIfNULL(
