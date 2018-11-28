@@ -5,7 +5,8 @@
 \title{Read Logger File from FLEXIM F601}
 \usage{
 readLogger_FLEXIM_F601(filename, sep = "\\t", dec = ",",
-  timeformat = "\%d.\%m.\%Y \%H:\%M:\%S", headerPattern = "Uhrzeit\\tDruck",
+  timeformat = "\%d.\%m.\%Y \%H:\%M:\%S",
+  headerPattern = "Uhrzeit\\tDruck",
   date_yyyymmdd = substr(basename(filename), 1, 8), dbg = TRUE)
 }
 \arguments{

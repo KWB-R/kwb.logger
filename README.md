@@ -7,3 +7,17 @@
 
 # kwb.logger
 Functions to Read Measurement Data from Logger Files
+
+
+## Installation
+
+```r
+#install.packages("remotes", repos = "https://cloud.r-project.org")
+remotes::install_github("KWB-R/kwb.logger")
+```
+
+## Documentation
+
+Release: [https://kwb-r.github.io/kwb.logger](https://kwb-r.github.io/kwb.logger)
+
+Development: [https://kwb-r.github.io/kwb.logger/dev](https://kwb-r.github.io/kwb.logger/dev)

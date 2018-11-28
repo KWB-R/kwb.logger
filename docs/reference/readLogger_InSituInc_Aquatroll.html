@@ -109,9 +109,9 @@
     </div>
 
     <pre class="usage"><span class='fu'>readLogger_InSituInc_Aquatroll</span>(<span class='no'>csv</span>, <span class='kw'>headerPattern</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>timestampFormat</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"%d.%m.%Y %H:%M:%S"</span>, <span class='st'>"%d.%m.%Y%H:%M:%S"</span>),
-  <span class='kw'>tz</span> <span class='kw'>=</span> <span class='st'>"Etc/GMT+1"</span>, <span class='kw'>maxRowToLookForHeader</span> <span class='kw'>=</span> <span class='fl'>700</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='kw'>dbg</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+  <span class='kw'>timestampFormat</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"%d.%m.%Y %H:%M:%S"</span>,
+  <span class='st'>"%d.%m.%Y%H:%M:%S"</span>), <span class='kw'>tz</span> <span class='kw'>=</span> <span class='st'>"Etc/GMT+1"</span>,
+  <span class='kw'>maxRowToLookForHeader</span> <span class='kw'>=</span> <span class='fl'>700</span>, <span class='kw'>model</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>dbg</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -176,7 +176,7 @@ advance to look for the header line. Default: 700</p></td>
 #&gt; 
 #&gt; Device Properties
 #&gt; Device;Aqua TROLL 100
-#&gt; Site;Panke Messstelle Bürgerpark
+#&gt; Site;Panke Messstelle B|rgerpark
 #&gt; Device Name; 
 #&gt; Serial Number;192791
 #&gt; Firmware Version;1.10
@@ -192,8 +192,8 @@ advance to look for the header line. Default: 700</p></td>
 #&gt; ;Computer Name;KWB45
 #&gt; ;Application;WinSitu.exe
 #&gt; ;Application Version;5.6.21.0
-#&gt; ;Create Date;19.03.2014 16:04:56 Westeuropäische Normalzeit
-#&gt; ;Log Setup Time Zone;Westeuropäische Normalzeit
+#&gt; ;Create Date;19.03.2014 16:04:56 Westeuropdische Normalzeit
+#&gt; ;Log Setup Time Zone;Westeuropdische Normalzeit
 #&gt; ;Notes Size(bytes);4096
 #&gt; ;Overwrite when full;Disabled
 #&gt; ;Scheduled Start Time;Manual Start
@@ -229,11 +229,11 @@ advance to look for the header line. Default: 700</p></td>
 #&gt; 
 #&gt;  ,1,192791,Conductivity
 #&gt; 
-#&gt; Time Zone: Westeuropäische Normalzeit/Westeuropäische Sommerzeit
+#&gt; Time Zone: Westeuropdische Normalzeit/Westeuropdische Sommerzeit
 #&gt; 
 #&gt; ;;Sensor: Cond                  ;Sensor: Cond                  ;Sensor: Cond                  ;
 #&gt; ;Elapsed Time;SN#: 192791                   ;SN#: 192791                   ;SN#: 192791                   ;
-#&gt; Date and Time;Seconds     ;Actual Conductivity (µS)      ;Temperature (C)               ;Specific Conductivity (µS)    ;
+#&gt; Date and Time;Seconds     ;Actual Conductivity (5S)      ;Temperature (C)               ;Specific Conductivity (5S)    ;
 #&gt; 19.03.2014 16:05:22;       0.000;                         0.000;                        15.388;                         0.000;
 #&gt; 19.03.2014 16:20:22;     900.000;                       594.037;                         9.188;                       851.072;
 #&gt; 19.03.2014 16:35:22;    1800.000;                       592.425;                         9.034;                       852.341;

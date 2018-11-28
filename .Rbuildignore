@@ -4,6 +4,7 @@
 ^appveyor\.yml$
 ^codecov\.yml$
 ^README\.md$
+^index\.Rmd$
 ^docs\.*
 _pkgdown.yaml
 LICENSE\.md$
