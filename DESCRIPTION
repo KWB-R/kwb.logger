@@ -1,19 +1,33 @@
 Package: kwb.logger
-Version: 0.2.0
 Title: Functions to read measurement data from logger files
-Description: Functions to read measurement data from logger files.
-Authors@R: c(
-    person("Hauke", "Sonnenberg", , "hauke.sonnenberg@kompetenz-wasser.de", 
-           role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9134-2871")),
-    person("Kompetenzzentrum Wasser Berlin gGmbH", role = c("cph")))
-Imports: kwb.datetime, kwb.utils, qmrparser, XML
-Remotes: 
-   github::kwb-r/kwb.datetime,
-   github::kwb-r/kwb.utils
-Suggests: 
-    testthat
-Encoding: UTF-8
+Version: 0.2.0
+Authors@R: 
+    c(person(given = "Hauke",
+             family = "Sonnenberg",
+             role = c("aut", "cre"),
+             email = "hauke.sonnenberg@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0001-9134-2871")),
+      person(given = "Michael",
+             family = "Rustler",
+             role = "ctb",
+             email = "michael.rustler@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0003-0647-7726")),
+      person(given = "Kompetenzzentrum Wasser Berlin gGmbH (KWB)",
+             role = "cph"))
+Description: Functions to read measurement data from logger
+    files.
 License: MIT + file LICENSE
-RoxygenNote: 6.1.0
 URL: https://github.com/KWB-R/kwb.logger
 BugReports: https://github.com/KWB-R/kwb.logger/issues
+Imports: 
+    kwb.datetime,
+    kwb.utils,
+    qmrparser,
+    XML
+Suggests: 
+    testthat
+Remotes: 
+    github::kwb-r/kwb.datetime,
+    github::kwb-r/kwb.utils
+Encoding: UTF-8
+RoxygenNote: 6.1.1
