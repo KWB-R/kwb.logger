@@ -10,7 +10,9 @@ authors:
 template:
   params:
     bootswatch: cerulean
-
+    docsearch:
+      api_key: d6c202453f007a7bdbdd030e00eddd29
+      index_name: kwb_logger
 development:
   mode: auto
 
