@@ -97,7 +97,7 @@ read_logger_LT_EDGE_M100 <- function(
     TimestampInFile = TimestampInFile,
     DateTimeUTC = DateTimeUTC,
     LocalDateTime = LocalDateTime,    
-    UTCOffset = kwb.datetime:::utcOffset(
+    UTCOffset = kwb.datetime::utcOffset(
       as.character(LocalDateTime), as.character(DateTimeUTC)
     ),
     stringsAsFactors = FALSE
