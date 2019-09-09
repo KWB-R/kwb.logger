@@ -33,7 +33,8 @@ filename <- grep("FLEXIM_F601", exampleLoggerFiles(), value = TRUE)[2]
   
 # Let's have a look on the file structure
 kwb.utils::catLines(readLines(filename))
-  
+
+\dontrun{   
 # Now read the file
 x <- readLogger_FLEXIM_F601(filename)
   
@@ -42,7 +43,7 @@ head(x)
   
 # Get the meta data and show its structure
 str(kwb.utils::getAttribute(x, "metadata"))
-
+}
 }
 \references{
 \url{http://www.flexim.com/files/tsfluxus_f601v1-5-1de_leu.pdf}

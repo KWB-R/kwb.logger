@@ -20,7 +20,8 @@
 #'   
 #' # Let's have a look on the file structure
 #' kwb.utils::catLines(readLines(filename))
-#'   
+#'
+#'\dontrun{   
 #' # Now read the file
 #' x <- readLogger_FLEXIM_F601(filename)
 #'   
@@ -29,7 +30,7 @@
 #'   
 #' # Get the meta data and show its structure
 #' str(kwb.utils::getAttribute(x, "metadata"))
-#'
+#'}
 readLogger_FLEXIM_F601 <- function(
   filename, sep = "\t", dec = ",", 
   #timeformat = .defaultTimeFormat("v2"),
