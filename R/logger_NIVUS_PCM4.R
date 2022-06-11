@@ -107,7 +107,7 @@ readLogger_NIVUS_PCM4_2 <- function(
   
   headerFields <- .splitHeaderLine(headerLine, sep)
   
-  headerCaptions <- kwb.utils::hsSubstSpecChars(headerFields)
+  headerCaptions <- kwb.utils::substSpecialChars(headerFields)
   
   col.names <- sprintf("V%d", seq_len(maxCols))
   col.names[seq_along(headerCaptions)] <- headerCaptions

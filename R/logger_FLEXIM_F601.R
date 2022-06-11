@@ -225,7 +225,7 @@ reset_locale <- function(locale_string)
     action = function(x) if (is.list(x$value)) {
       stats::setNames(
         object = as.list(sapply(x$value, "[[", 2)), 
-        nm = kwb.utils::hsSubstSpecChars(sapply(x$value, "[[", 1))
+        nm = kwb.utils::substSpecialChars(sapply(x$value, "[[", 1))
       )
     }
   )

@@ -233,7 +233,7 @@ readLogger_PCE_TDS100 <- function(txt, timeformat = .defaultTimeFormat("v3"))
     
     x <- stats::setNames(
       object = data.frame(as.list(x$values), stringsAsFactors = FALSE), 
-      nm = kwb.utils::hsSubstSpecChars(x$names)
+      nm = kwb.utils::substSpecialChars(x$names)
     )
   }
   
