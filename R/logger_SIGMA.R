@@ -51,7 +51,6 @@ readLogger_SIGMA_SD900 <- function(
   dat$myDateTime <- kwb.datetime::reformatTimestamp(dat$myDateTime, dateformat)
   
   if (! is.null(dat$volume)) {
-    
     volumeFields <- strsplit(dat$volume, "\\s+")
     dat$volume <- sapply(volumeFields, "[[", 1)
     dat$unit <- sapply(volumeFields, "[[", 2)
@@ -60,7 +59,6 @@ readLogger_SIGMA_SD900 <- function(
   dat$result <- kwb.utils::hsTrim(dat$result)
   
   if (successOnly) {
-    
     dat <- dat[dat$result == "SUCCESS", ]
   }
   
@@ -80,7 +78,6 @@ readLogger_SIGMA_SD900 <- function(
   headerLine <- grep(headerPattern, mylines)
   
   if (! length(headerLine)) {
-    
     stop(sprintf(
       "Could not find header line \"%s\" in file \"%s\"",
       headerPattern, filepath
@@ -91,20 +88,26 @@ readLogger_SIGMA_SD900 <- function(
     filepath, sep = sep, nrows = headerLine - 1, fill = TRUE, header = FALSE,
     stringsAsFactors = FALSE
   )
-  
-  metadata$V1 <- kwb.utils::hsSubstSpecChars(kwb.utils::hsTrim(metadata$V1))
-  metadata <- metadata[grep("\\:$", metadata$V1), ]
-  
-  # remove non-alphanumeric characters
-  metadata$V1 <- gsub("[^a-zA-Z0-9_]", "", metadata$V1)
-  
-  metadata <- kwb.utils::hsDelEmptyCols(metadata)  
 
   # trim all values in all columns
-  for (column in seq(2, by = 1, length.out = ncol(metadata) - 1)) {
-    
-    metadata[[column]] <- kwb.utils::hsTrim(metadata[[column]])
-  }  
+  metadata[] <- lapply(metadata, kwb.utils::hsTrim)
   
-  stats::setNames(as.list(metadata$V2), metadata$V1)
+  keys <- metadata[[1L]]
+  
+  ends_with_colon <- grepl("\\:$", keys)
+  
+  metadata <- metadata[ends_with_colon, ]
+  keys <- keys[ends_with_colon]
+  
+  # remove special characters and non-alphanumeric characters
+  keys <- gsub("[^a-zA-Z0-9_]", "", kwb.utils::substSpecialChars(keys))
+
+  # Assign key values back to metadata  
+  metadata[[1L]] <- keys
+
+  # Delete empty columns    
+  metadata <- kwb.utils::hsDelEmptyCols(metadata)  
+
+  # Create key = value list with keys from first and values from second column
+  kwb.utils::toLookupList(data = metadata[, 1:2])
 }
