@@ -4,9 +4,13 @@
 \alias{readLogger_PCE_PA8000}
 \title{Read Logger File from PCE PA8000}
 \usage{
-readLogger_PCE_PA8000(filename, sep = "\\t", dec = ",",
+readLogger_PCE_PA8000(
+  filename,
+  sep = "\\t",
+  dec = ",",
   timeformat = .defaultTimeFormat("v2"),
-  headerPattern = "Position\\tDate\\tTime")
+  headerPattern = "Position\\tDate\\tTime"
+)
 }
 \arguments{
 \item{filename}{full path to logger file}

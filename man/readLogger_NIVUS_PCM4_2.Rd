@@ -4,8 +4,13 @@
 \alias{readLogger_NIVUS_PCM4_2}
 \title{Read Logger File from NIVUS PCM4}
 \usage{
-readLogger_NIVUS_PCM4_2(filepath, headerRow = 9, sep = "\\t",
-  maxCols = 50, removeEmptyColumns = FALSE)
+readLogger_NIVUS_PCM4_2(
+  filepath,
+  headerRow = 9,
+  sep = "\\t",
+  maxCols = 50,
+  removeEmptyColumns = FALSE
+)
 }
 \arguments{
 \item{filepath}{full path to logger file}

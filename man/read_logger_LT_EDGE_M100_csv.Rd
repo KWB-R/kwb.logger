@@ -4,8 +4,7 @@
 \alias{read_logger_LT_EDGE_M100_csv}
 \title{Read Logger File (.csv) from LT EDGE M100}
 \usage{
-read_logger_LT_EDGE_M100_csv(file, country = "en",
-  maxRowToLookForHeader = 15)
+read_logger_LT_EDGE_M100_csv(file, country = "en", maxRowToLookForHeader = 15)
 }
 \arguments{
 \item{file}{full path to logger file}

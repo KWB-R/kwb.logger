@@ -4,9 +4,13 @@
 \alias{readLogger_STS_DL70}
 \title{Read Logger File from STS DL70}
 \usage{
-readLogger_STS_DL70(filepath, sep = "\\t", dec = ".",
+readLogger_STS_DL70(
+  filepath,
+  sep = "\\t",
+  dec = ".",
   dateformat = .defaultTimeFormat("v5"),
-  timeformat = .defaultTimeFormat("v1"))
+  timeformat = .defaultTimeFormat("v1")
+)
 }
 \arguments{
 \item{filepath}{full path to logger file}

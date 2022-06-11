@@ -4,8 +4,7 @@
 \alias{readLogger_NIVUS_PCM4}
 \title{Read Logger File from NIVUS PCM4}
 \usage{
-readLogger_NIVUS_PCM4(csv, completenessRequiredFor = c("DateTime", "H",
-  "v"))
+readLogger_NIVUS_PCM4(csv, completenessRequiredFor = c("DateTime", "H", "v"))
 }
 \arguments{
 \item{csv}{full path to CSV file}

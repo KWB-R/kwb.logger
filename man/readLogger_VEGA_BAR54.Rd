@@ -4,9 +4,14 @@
 \alias{readLogger_VEGA_BAR54}
 \title{Read Logger File from VEGA BAR54}
 \usage{
-readLogger_VEGA_BAR54(filename, date_yyyymmdd = "", sep = "\\t",
-  dec = ",", timeformat = .defaultTimeFormat("v2"),
-  headerPattern = "Uhrzeit\\tDruck")
+readLogger_VEGA_BAR54(
+  filename,
+  date_yyyymmdd = "",
+  sep = "\\t",
+  dec = ",",
+  timeformat = .defaultTimeFormat("v2"),
+  headerPattern = "Uhrzeit\\tDruck"
+)
 }
 \arguments{
 \item{filename}{full path to inoput file}

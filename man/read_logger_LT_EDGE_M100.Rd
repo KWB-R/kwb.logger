@@ -4,8 +4,13 @@
 \alias{read_logger_LT_EDGE_M100}
 \title{Read Logger File from LT EDGE M100}
 \usage{
-read_logger_LT_EDGE_M100(file, timeFormat = .defaultTimeFormat("v4"),
-  metaToColumns = FALSE, dbg = TRUE, ...)
+read_logger_LT_EDGE_M100(
+  file,
+  timeFormat = .defaultTimeFormat("v4"),
+  metaToColumns = FALSE,
+  dbg = TRUE,
+  ...
+)
 }
 \arguments{
 \item{file}{full path to the file (either .xle or .csv)}

@@ -4,10 +4,15 @@
 \alias{readLogger_InSituInc_Aquatroll}
 \title{Read File From InSituInc Aquatroll}
 \usage{
-readLogger_InSituInc_Aquatroll(csv, headerPattern = NULL,
-  timestampFormat = c("\%d.\%m.\%Y \%H:\%M:\%S",
-  "\%d.\%m.\%Y\%H:\%M:\%S"), tz = "Etc/GMT+1",
-  maxRowToLookForHeader = 700, model = "", dbg = FALSE)
+readLogger_InSituInc_Aquatroll(
+  csv,
+  headerPattern = NULL,
+  timestampFormat = c("\%d.\%m.\%Y \%H:\%M:\%S", "\%d.\%m.\%Y\%H:\%M:\%S"),
+  tz = "Etc/GMT+1",
+  maxRowToLookForHeader = 700,
+  model = "",
+  dbg = FALSE
+)
 }
 \arguments{
 \item{csv}{full path to logger file}
@@ -42,7 +47,7 @@ Read File From InSituInc Aquatroll
 files <- grep("Aquatroll", exampleLoggerFiles(), value=TRUE)
   
 # let's have a look on the file structure (read first 75 lines)
-cat(paste(readLines(files[1], 75), collapse = "\\n"))
+cat(paste(readLines(files[1], 75), collapse = "\n"))
   
 # now read the file
 x <- readLogger_InSituInc_Aquatroll(csv = files[1])

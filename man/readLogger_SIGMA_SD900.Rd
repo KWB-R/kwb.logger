@@ -4,8 +4,12 @@
 \alias{readLogger_SIGMA_SD900}
 \title{Read Logger File from SIGMA_SD900}
 \usage{
-readLogger_SIGMA_SD900(filepath, successOnly = FALSE, sep = ",",
-  dateformat = .defaultTimeFormat("v6"))
+readLogger_SIGMA_SD900(
+  filepath,
+  successOnly = FALSE,
+  sep = ",",
+  dateformat = .defaultTimeFormat("v6")
+)
 }
 \arguments{
 \item{filepath}{full path to input file}
