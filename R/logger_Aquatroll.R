@@ -72,7 +72,7 @@ read_aquatroll_data <- function(file)
 #' head(x)
 #'   
 #' # Read a file of Aquatroll, model "600"
-#' x600 <- readLogger_InSituInc_Aquatroll(files[2], model = "600")
+#' x600 <- readLogger_InSituInc_Aquatroll(csv = files[2], model = "600")
 #'   
 #' # show the first lines
 #' head(x600)
@@ -163,24 +163,23 @@ readLogger_InSituInc_Aquatroll <- function(
     c("WaterTemp.C", "SpecCond.uS")
   }
   
-  for (column in columns) {
-    
-    values <- dat[[column]]
-    
-    if (! is.null(values)) {
-      
-      if (! is.numeric(values)) {
-        
-        dat[[column]] <- kwb.utils::hsChrToNum(values, country = "en")  
-        
-      } else {
-        
-        kwb.utils::catIf(
-          dbg, "Column", kwb.utils::hsQuoteChr(column), "is already numeric.\n"
-        )
-      }
+  # Reduce to existing columns
+  columns <- intersect(columns, names(dat))
+
+  # Function to convert to numeric (or not)
+  to_numeric <- function(x, column) {
+    if (is.numeric(x)) {
+      kwb.utils::catIf(
+        dbg, "Column", kwb.utils::hsQuoteChr(column), "is already numeric.\n"
+      )
+      return(x)
     }
+    kwb.utils::hsChrToNum(x, country = "en")
   }
   
+  for (column in columns) {
+    dat[[column]] <- to_numeric(x = dat[[column]], column)
+  }
+
   dat  
 }
