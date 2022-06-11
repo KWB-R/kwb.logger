@@ -10,8 +10,7 @@ Authors@R: c(
     person("OPTIWELLS-2", role = "fnd"),
     person("Kompetenzzentrum Wasser Berlin gGmbH (KWB)", role = "cph")
   )
-Description: Functions to read measurement data from logger
-    files.
+Description: Functions to read measurement data from logger files.
 License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.logger
 BugReports: https://github.com/KWB-R/kwb.logger/issues
