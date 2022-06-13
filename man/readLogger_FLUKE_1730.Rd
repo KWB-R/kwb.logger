@@ -17,15 +17,16 @@ readLogger_FLUKE_1730(filepath, sep = ";", dec = ".")
 Read Logger File from FLUKE_1730
 }
 \examples{
+\dontrun{
 # set path to example file (contained in this package)
-filepath <- grep("FLUKE_1730", exampleLoggerFiles(), value = TRUE)[1]
-  
+file <- extdataFile("FLUKE/example_FLUKE_1730_1.txt")
+
 # read the file
-x <- readLogger_FLUKE_1730(filepath)
+x <- readLogger_FLUKE_1730(file)
   
 # examine the list structure of the result
 str(x)  
-
+}
 }
 \references{
 \url{http://assets.fluke.com/manuals/1730____umeng0000.pdf}

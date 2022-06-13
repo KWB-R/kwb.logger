@@ -22,14 +22,16 @@ data frame with columns \emph{tstamp}, \emph{flow}, \emph{flowunit},
 Read logger file of flow meter TDS 100 by PCE Deutschland GmbH
 }
 \examples{
+\dontrun{
 # set path to example file (contained in this package)
-filepaths <- grep("PCE_TDS100", exampleLoggerFiles(), value = TRUE)
-  
+file_1 <- extdataFile("PCE/example_PCE_TDS100.log")
+file_2 <- extdataFile("PCE/example_PCE_TDS100_noMeta.log")
+
 # read a file containing metadata
-x1 <- readLogger_PCE_TDS100(filepaths[1]) # warnings about duplicate timestamps
+x1 <- readLogger_PCE_TDS100(file_1) # warnings about duplicate timestamps
   
 # read a file not containing metadata
-x2 <- readLogger_PCE_TDS100(filepaths[2]) # warning about missing meta data
+x2 <- readLogger_PCE_TDS100(file_2) # warning about missing meta data
   
 # examine the structures of the results
 str(x1)
@@ -37,6 +39,7 @@ str(x2)
   
 # get meta data from attribute "metadata"
 kwb.utils::getAttribute(x1, "metadata")
+}
 
 }
 \references{

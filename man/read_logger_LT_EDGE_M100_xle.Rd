@@ -4,8 +4,11 @@
 \alias{read_logger_LT_EDGE_M100_xle}
 \title{Read Logger File (.xle) from LT EDGE M100}
 \usage{
-read_logger_LT_EDGE_M100_xle(file, timeFormat = .defaultTimeFormat("v4"),
-  country = NA)
+read_logger_LT_EDGE_M100_xle(
+  file,
+  timeFormat = .defaultTimeFormat("v4"),
+  country = NA
+)
 }
 \arguments{
 \item{file}{full path to logger file}

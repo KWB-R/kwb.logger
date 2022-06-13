@@ -4,8 +4,12 @@
 \alias{.getMetadata}
 \title{Get Meta Data from File Lines}
 \usage{
-.getMetadata(mylines, beginPattern = "Outer Diameter",
-  endPattern = "Txducers Spacing", transpose = TRUE)
+.getMetadata(
+  mylines,
+  beginPattern = "Outer Diameter",
+  endPattern = "Txducers Spacing",
+  transpose = TRUE
+)
 }
 \arguments{
 \item{mylines}{vector of character, each representing a line of a text file}

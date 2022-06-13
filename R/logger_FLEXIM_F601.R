@@ -16,20 +16,21 @@
 #' 
 #' @examples 
 #' # Set path to example file (contained in this package)
-#' filename <- grep("FLEXIM_F601", exampleLoggerFiles(), value = TRUE)[2]
-#'   
+#' file <- extdataFile("FLEXIM/example_FLEXIM_F601_short.txt")
+#'    
 #' # Let's have a look on the file structure
-#' kwb.utils::catLines(readLines(filename))
-#'   
+#' writeLines(readLines(file))
+#' 
+#'\dontrun{   
 #' # Now read the file
-#' x <- readLogger_FLEXIM_F601(filename)
+#' x <- readLogger_FLEXIM_F601(file)
 #'   
 #' # Show the first lines
 #' head(x)
 #'   
 #' # Get the meta data and show its structure
 #' str(kwb.utils::getAttribute(x, "metadata"))
-#'
+#'}
 readLogger_FLEXIM_F601 <- function(
   filename, sep = "\t", dec = ",", 
   #timeformat = .defaultTimeFormat("v2"),
@@ -224,7 +225,7 @@ reset_locale <- function(locale_string)
     action = function(x) if (is.list(x$value)) {
       stats::setNames(
         object = as.list(sapply(x$value, "[[", 2)), 
-        nm = kwb.utils::hsSubstSpecChars(sapply(x$value, "[[", 1))
+        nm = kwb.utils::substSpecialChars(sapply(x$value, "[[", 1))
       )
     }
   )

@@ -17,15 +17,17 @@
 #' @export
 #' 
 #' @examples 
+#' \dontrun{
 #' # set path to example file (contained in this package)
-#' (filepath <- grep("VEGA_BAR54[.]", exampleLoggerFiles(), value = TRUE))
-#'   
+#' (file <- extdataFile("VEGA/example_VEGA_BAR54.txt"))
+#' 
 #' # read the file
-#' x <- readLogger_VEGA_BAR54(filepath)
+#' x <- readLogger_VEGA_BAR54(file)
 #'   
 #' # examine the structure of the result
-#' str(x)  
-#'
+#' str(x)
+#' }
+#' 
 readLogger_VEGA_BAR54 <- function(
   filename, date_yyyymmdd = "", sep = "\t", dec = ",", 
   timeformat = .defaultTimeFormat("v2"), headerPattern = "Uhrzeit\tDruck"
@@ -70,17 +72,19 @@ readLogger_VEGA_BAR54 <- function(
 #' @export
 #' 
 #' @examples 
+#' \dontrun{
 #' # set paths to example files (contained in this package)
-#' (filepaths <- grep("VEGA_BAR54_raw", exampleLoggerFiles(), value = TRUE))
-#'   
+#' file_1 <- extdataFile("VEGA/example_VEGA_BAR54_raw1.gnd")
+#' file_2 <- extdataFile("VEGA/example_VEGA_BAR54_raw2.gnd")
+#' 
 #' # read the files
-#' x1 <- readLogger_VEGA_BAR54_raw(filepaths[1])
-#' x2 <- readLogger_VEGA_BAR54_raw(filepaths[2])
+#' x1 <- readLogger_VEGA_BAR54_raw(file_1)
+#' x2 <- readLogger_VEGA_BAR54_raw(file_2)
 #'     
 #' # get meta data
 #' kwb.utils::getAttribute(x1, "metadata")
 #' kwb.utils::getAttribute(x2, "metadata")
-#' 
+#' }
 readLogger_VEGA_BAR54_raw <- function(filepath, trimMetadata = TRUE)
 {
   txt <- paste(readLines(filepath), collapse = "\n")

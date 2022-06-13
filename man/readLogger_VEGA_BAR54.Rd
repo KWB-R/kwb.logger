@@ -4,9 +4,14 @@
 \alias{readLogger_VEGA_BAR54}
 \title{Read Logger File from VEGA BAR54}
 \usage{
-readLogger_VEGA_BAR54(filename, date_yyyymmdd = "", sep = "\\t",
-  dec = ",", timeformat = .defaultTimeFormat("v2"),
-  headerPattern = "Uhrzeit\\tDruck")
+readLogger_VEGA_BAR54(
+  filename,
+  date_yyyymmdd = "",
+  sep = "\\t",
+  dec = ",",
+  timeformat = .defaultTimeFormat("v2"),
+  headerPattern = "Uhrzeit\\tDruck"
+)
 }
 \arguments{
 \item{filename}{full path to inoput file}
@@ -26,14 +31,16 @@ readLogger_VEGA_BAR54(filename, date_yyyymmdd = "", sep = "\\t",
 Read Logger File from VEGA BAR54
 }
 \examples{
+\dontrun{
 # set path to example file (contained in this package)
-(filepath <- grep("VEGA_BAR54[.]", exampleLoggerFiles(), value = TRUE))
-  
+(file <- extdataFile("VEGA/example_VEGA_BAR54.txt"))
+
 # read the file
-x <- readLogger_VEGA_BAR54(filepath)
+x <- readLogger_VEGA_BAR54(file)
   
 # examine the structure of the result
-str(x)  
+str(x)
+}
 
 }
 \references{

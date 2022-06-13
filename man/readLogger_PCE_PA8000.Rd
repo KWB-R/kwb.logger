@@ -4,9 +4,13 @@
 \alias{readLogger_PCE_PA8000}
 \title{Read Logger File from PCE PA8000}
 \usage{
-readLogger_PCE_PA8000(filename, sep = "\\t", dec = ",",
+readLogger_PCE_PA8000(
+  filename,
+  sep = "\\t",
+  dec = ",",
   timeformat = .defaultTimeFormat("v2"),
-  headerPattern = "Position\\tDate\\tTime")
+  headerPattern = "Position\\tDate\\tTime"
+)
 }
 \arguments{
 \item{filename}{full path to logger file}
@@ -23,15 +27,17 @@ readLogger_PCE_PA8000(filename, sep = "\\t", dec = ",",
 Read Logger File from PCE PA8000
 }
 \examples{
+\dontrun{
 # set path to example file (contained in this package)
-(filepath <- grep("PCE_PA8000", exampleLoggerFiles(), value = TRUE))
-  
+(file <- extdataFile("PCE/example_PCE_PA8000.txt"))
+
 # read the file
-x <- readLogger_PCE_PA8000(filepath)
+x <- readLogger_PCE_PA8000(file)
   
 # examine the structure of the result
 str(x)  
-  
+}
+
 }
 \references{
 \url{http://www.industrial-needs.com/manual/manual-pce-pa8000.pdf}

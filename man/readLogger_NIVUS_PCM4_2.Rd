@@ -4,8 +4,13 @@
 \alias{readLogger_NIVUS_PCM4_2}
 \title{Read Logger File from NIVUS PCM4}
 \usage{
-readLogger_NIVUS_PCM4_2(filepath, headerRow = 9, sep = "\\t",
-  maxCols = 50, removeEmptyColumns = FALSE)
+readLogger_NIVUS_PCM4_2(
+  filepath,
+  headerRow = 9,
+  sep = "\\t",
+  maxCols = 50,
+  removeEmptyColumns = FALSE
+)
 }
 \arguments{
 \item{filepath}{full path to logger file}
@@ -22,13 +27,18 @@ readLogger_NIVUS_PCM4_2(filepath, headerRow = 9, sep = "\\t",
 Read Logger File from NIVUS PCM4
 }
 \examples{
+\dontrun{
 # set paths to example files (contained in this package)
-filepaths <- grep("NIVUS_PCM4", exampleLoggerFiles(), value = TRUE)[-1]
-  
+files <- c(
+  extdataFile("NIVUS/example_NIVUS_PCM4_ALT.TXT"),
+  extdataFile("NIVUS/example_NIVUS_PCM4_NEU.TXT"),
+  extdataFile("NIVUS/example_NIVUS_PCM4_STR.TXT")
+)
+ 
 # read the files
-x1 <- readLogger_NIVUS_PCM4_2(filepaths[1])
-x2 <- readLogger_NIVUS_PCM4_2(filepaths[2])
-x3 <- readLogger_NIVUS_PCM4_2(filepaths[3])
+x1 <- readLogger_NIVUS_PCM4_2(files[1L])
+x2 <- readLogger_NIVUS_PCM4_2(files[2L])
+x3 <- readLogger_NIVUS_PCM4_2(files[3L])
   
 # compare structures
 str(x1)
@@ -40,7 +50,7 @@ str(x3)
   
 # show time adjusts
 metadata$timeAdjust
-
+}
 }
 \references{
 \url{http://www.nivus.de/ximages/1397007_p4ba02en.pdf}

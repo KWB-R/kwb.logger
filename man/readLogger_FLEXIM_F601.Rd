@@ -4,10 +4,15 @@
 \alias{readLogger_FLEXIM_F601}
 \title{Read Logger File from FLEXIM F601}
 \usage{
-readLogger_FLEXIM_F601(filename, sep = "\\t", dec = ",",
+readLogger_FLEXIM_F601(
+  filename,
+  sep = "\\t",
+  dec = ",",
   timeformat = "\%d.\%m.\%Y \%H:\%M:\%S",
   headerPattern = "Uhrzeit\\tDruck",
-  date_yyyymmdd = substr(basename(filename), 1, 8), dbg = TRUE)
+  date_yyyymmdd = substr(basename(filename), 1, 8),
+  dbg = TRUE
+)
 }
 \arguments{
 \item{filename}{full path to logger file}
@@ -29,20 +34,21 @@ Read Logger File from FLEXIM F601
 }
 \examples{
 # Set path to example file (contained in this package)
-filename <- grep("FLEXIM_F601", exampleLoggerFiles(), value = TRUE)[2]
-  
+file <- extdataFile("FLEXIM/example_FLEXIM_F601_short.txt")
+   
 # Let's have a look on the file structure
-kwb.utils::catLines(readLines(filename))
-  
+writeLines(readLines(file))
+
+\dontrun{   
 # Now read the file
-x <- readLogger_FLEXIM_F601(filename)
+x <- readLogger_FLEXIM_F601(file)
   
 # Show the first lines
 head(x)
   
 # Get the meta data and show its structure
 str(kwb.utils::getAttribute(x, "metadata"))
-
+}
 }
 \references{
 \url{http://www.flexim.com/files/tsfluxus_f601v1-5-1de_leu.pdf}

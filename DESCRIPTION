@@ -1,21 +1,16 @@
 Package: kwb.logger
 Title: Functions to read measurement data from logger files
-Version: 0.2.0
-Authors@R: 
-    c(person(given = "Hauke",
-             family = "Sonnenberg",
-             role = c("aut", "cre"),
-             email = "hauke.sonnenberg@kompetenz-wasser.de",
-             comment = c(ORCID = "0000-0001-9134-2871")),
-      person(given = "Michael",
-             family = "Rustler",
-             role = "ctb",
-             email = "michael.rustler@kompetenz-wasser.de",
-             comment = c(ORCID = "0000-0003-0647-7726")),
-      person(given = "Kompetenzzentrum Wasser Berlin gGmbH (KWB)",
-             role = "cph"))
-Description: Functions to read measurement data from logger
-    files.
+Version: 0.3.0
+Authors@R: c(
+    person("Hauke", "Sonnenberg", , "hauke.sonnenberg@kompetenz-wasser.de", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-9134-2871")),
+    person("Michael", "Rustler", , "michael.rustler@kompetenz-wasser.de", role = "ctb",
+           comment = c(ORCID = "0000-0003-0647-7726")),
+    person("FAKIN", role = "fnd"),
+    person("OPTIWELLS-2", role = "fnd"),
+    person("Kompetenzzentrum Wasser Berlin gGmbH (KWB)", role = "cph")
+  )
+Description: Functions to read measurement data from logger files.
 License: MIT + file LICENSE
 URL: https://github.com/KWB-R/kwb.logger
 BugReports: https://github.com/KWB-R/kwb.logger/issues
@@ -30,4 +25,4 @@ Remotes:
     github::kwb-r/kwb.datetime,
     github::kwb-r/kwb.utils
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.2.0

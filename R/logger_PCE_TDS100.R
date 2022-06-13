@@ -18,14 +18,16 @@
 #' @export
 #' 
 #' @examples 
+#' \dontrun{
 #' # set path to example file (contained in this package)
-#' filepaths <- grep("PCE_TDS100", exampleLoggerFiles(), value = TRUE)
-#'   
+#' file_1 <- extdataFile("PCE/example_PCE_TDS100.log")
+#' file_2 <- extdataFile("PCE/example_PCE_TDS100_noMeta.log")
+#' 
 #' # read a file containing metadata
-#' x1 <- readLogger_PCE_TDS100(filepaths[1]) # warnings about duplicate timestamps
+#' x1 <- readLogger_PCE_TDS100(file_1) # warnings about duplicate timestamps
 #'   
 #' # read a file not containing metadata
-#' x2 <- readLogger_PCE_TDS100(filepaths[2]) # warning about missing meta data
+#' x2 <- readLogger_PCE_TDS100(file_2) # warning about missing meta data
 #'   
 #' # examine the structures of the results
 #' str(x1)
@@ -33,6 +35,7 @@
 #'   
 #' # get meta data from attribute "metadata"
 #' kwb.utils::getAttribute(x1, "metadata")
+#' }
 #' 
 readLogger_PCE_TDS100 <- function(txt, timeformat = .defaultTimeFormat("v3"))
 {
@@ -226,14 +229,14 @@ readLogger_PCE_TDS100 <- function(txt, timeformat = .defaultTimeFormat("v3"))
   
   mynames <- mylines[seq(specialBegin, specialEnd, 2)]
   myvalues <- mylines[seq(specialBegin + 1, specialEnd + 1, 2)]
-
+  
   x <- data.frame(names = mynames, values = myvalues, stringsAsFactors = FALSE)  
-
+  
   if (transpose) {
     
     x <- stats::setNames(
       object = data.frame(as.list(x$values), stringsAsFactors = FALSE), 
-      nm = kwb.utils::hsSubstSpecChars(x$names)
+      nm = kwb.utils::substSpecialChars(x$names)
     )
   }
   

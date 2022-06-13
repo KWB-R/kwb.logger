@@ -11,15 +11,16 @@
 #' @export
 #' 
 #' @examples 
+#' \dontrun{
 #' # set path to example file (contained in this package)
-#' filepath <- grep("FLUKE_1730", exampleLoggerFiles(), value = TRUE)[1]
-#'   
+#' file <- extdataFile("FLUKE/example_FLUKE_1730_1.txt")
+#' 
 #' # read the file
-#' x <- readLogger_FLUKE_1730(filepath)
+#' x <- readLogger_FLUKE_1730(file)
 #'   
 #' # examine the list structure of the result
 #' str(x)  
-#'
+#' }
 readLogger_FLUKE_1730 <- function(filepath, sep = ";", dec = ".") 
 {
   utils::read.csv(
@@ -45,15 +46,17 @@ readLogger_FLUKE_1730 <- function(filepath, sep = ";", dec = ".")
 #' @export
 #' 
 #' @examples 
+#' \dontrun{
 #' # set path to example file (contained in this package)
-#' (filepath <- grep("STS_DL", exampleLoggerFiles(), value=TRUE))
-#'   
+#' file <- extdataFile("STS/example_STS_DLN70_H.txt")
+#' 
 #' # read the file
-#' x <- readLogger_STS_DL70(filepath)
+#' x <- readLogger_STS_DL70(file)
 #'   
 #' # examine the structure of the result
 #' str(x)  
-#'   
+#' }
+#' 
 readLogger_STS_DL70 <- function(
   filepath, sep = "\t", dec = ".", dateformat = .defaultTimeFormat("v5"),
   timeformat = .defaultTimeFormat("v1")
@@ -94,7 +97,7 @@ readLogger_STS_DL70 <- function(
   columns <- c(
     "myDateTime", setdiff(names(result), c(tcolname, "Date", "Time"))
   )
-
+  
   structure(
     kwb.utils::selectColumns(result, columns), 
     metadata = as.data.frame(meta, stringsAsFactors = FALSE)
@@ -116,15 +119,17 @@ readLogger_STS_DL70 <- function(
 #' @export
 #' 
 #' @examples 
+#' \dontrun{
 #' # set path to example file (contained in this package)
-#' (filepath <- grep("PCE_PA8000", exampleLoggerFiles(), value = TRUE))
-#'   
+#' (file <- extdataFile("PCE/example_PCE_PA8000.txt"))
+#' 
 #' # read the file
-#' x <- readLogger_PCE_PA8000(filepath)
+#' x <- readLogger_PCE_PA8000(file)
 #'   
 #' # examine the structure of the result
 #' str(x)  
-#'   
+#' }
+#' 
 readLogger_PCE_PA8000 <- function(
   filename, sep = "\t", dec = ",", timeformat = .defaultTimeFormat("v2"),
   headerPattern = "Position\tDate\tTime"
