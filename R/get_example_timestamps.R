@@ -3,55 +3,56 @@
 #' Timestamp Strings from Example Looger Files
 #' 
 #' @export
-#' 
 getExampleTimestamps <- function()
 {
-  files <- exampleLoggerFiles()
-  
-  raw_contents <- lapply(files, readLines)
+  path <- extdataFile()
+  rel_paths <- dir(path, recursive = TRUE)
+  X <- lapply(file.path(path, rel_paths), readLines, warn = FALSE)
+  names(X) <- rel_paths
   
   list(
-    get_timestamps_1(x = raw_contents[[1]]),
-    get_timestamps_1(x = raw_contents[[2]]),
-    get_timestamps_2(x = raw_contents[[3]]),
-    get_timestamps_2(x = raw_contents[[4]]),
-    # skip 5 and 6
-    get_timestamps_3(x = raw_contents[[7]]),
-    get_timestamps_3(x = raw_contents[[8]]),
-    get_timestamps_4(x = raw_contents[[9]]),
-    get_timestamps_4(x = raw_contents[[10]]),
-    get_timestamps_4(x = raw_contents[[11]]),
-    get_timestamps_4(x = raw_contents[[12]]),
-    # skip 13 (sampler)
-    get_timestamps_5(x = raw_contents[[14]]),
-    get_timestamps_5(x = raw_contents[[15]]),
-    get_timestamps_6(x = raw_contents[[16]]),
-    get_timestamps_7(x = raw_contents[[17]])
+    get_timestamps_flexim(x = X[["FLEXIM/example_FLEXIM_F601.txt"]]),
+    get_timestamps_flexim(x = X[["FLEXIM/example_FLEXIM_F601_short.txt"]]),
+    get_timestamps_fluke(x = X[["FLUKE/example_FLUKE_1730_1.txt"]]),
+    get_timestamps_fluke(x = X[["FLUKE/example_FLUKE_1730_2.txt"]]),
+    # skip 5: FLUKE_1730_3.fca               
+    # skip 6: example_FLUKE_1730_4.fca
+    get_timestamps_aquatroll(x = X[["InSituInc/example_InSituInc_Aquatroll.csv"]]),
+    get_timestamps_aquatroll(x = X[["InSituInc/example_InSituInc_Aquatroll_600.csv"]]),
+    get_timestamps_nivus(x = X[["NIVUS/example_NIVUS_PCM4.TXT"]]),
+    get_timestamps_nivus(x = X[["NIVUS/example_NIVUS_PCM4_ALT.TXT"]]),
+    get_timestamps_nivus(x = X[["NIVUS/example_NIVUS_PCM4_NEU.TXT"]]),
+    get_timestamps_nivus(x = X[["NIVUS/example_NIVUS_PCM4_STR.TXT"]]),
+    # skip 13: example_Ori_BasicEx1.csv
+    get_timestamps_ori_mlog(x = X[["Ori/example_Ori_MLog_1.csv"]]),
+    get_timestamps_ori_mlog(x = X[["Ori/example_Ori_MLog_2.csv"]]),
+    get_timestamps_pce_pa8000(x = X[["PCE/example_PCE_PA8000.txt"]]),
+    get_timestamps_pce_tds100(x = X[["PCE/example_PCE_TDS100.log"]])
   )
 }
 
-# get_timestamps_7 -------------------------------------------------------------
-get_timestamps_7 <- function(x)
+# get_timestamps_pce_tds100 ----------------------------------------------------
+get_timestamps_pce_tds100 <- function(x)
 {
   timestamps <- grep("\\d\\d:\\d\\d:\\d\\d$", x, value = TRUE)
   timestamps[nchar(timestamps) == 17]
 }
 
-# get_timestamps_6 -------------------------------------------------------------
-get_timestamps_6 <- function(x)
+# get_timestamps_pce_pa8000 ----------------------------------------------------
+get_timestamps_pce_pa8000 <- function(x)
 {
   content <- utils::read.table(text = x[-(1:3)], sep = "\t")
   kwb.utils::pasteColumns(content, columns = c("V2", "V3"))
 }
 
-# get_timestamps_5 -------------------------------------------------------------
-get_timestamps_5 <- function(x)
+# get_timestamps_ori_mlog ------------------------------------------------------
+get_timestamps_ori_mlog <- function(x)
 {
   unlist(lapply(strsplit(x, ";"), "[", 1))[-1]
 }
 
-# get_timestamps_4 -------------------------------------------------------------
-get_timestamps_4 <- function(x)
+# get_timestamps_nivus ---------------------------------------------------------
+get_timestamps_nivus <- function(x)
 {
   start_row <- grep("^Datum\tUhrzeit", x, useBytes = TRUE)
   
@@ -67,8 +68,8 @@ get_timestamps_4 <- function(x)
   timestamps[grepl(":", timestamps)]
 }
 
-# get_timestamps_3 -------------------------------------------------------------
-get_timestamps_3 <- function(x)
+# get_timestamps_aquatroll -----------------------------------------------------
+get_timestamps_aquatroll <- function(x)
 {
   start_row <- grep("^Date and Time", x)
   end_row <- grep("^Log Data", x)
@@ -76,14 +77,14 @@ get_timestamps_3 <- function(x)
   utils::read.table(text = text, sep = ";", stringsAsFactors = FALSE)$V1
 }
 
-# get_timestamps_2 -------------------------------------------------------------
-get_timestamps_2 <- function(x)
+# get_timestamps_fluke ---------------------------------------------------------
+get_timestamps_fluke <- function(x)
 {
-  utils::read.table(text = x, sep = ";", stringsAsFactors = FALSE)[, 1]
+  sapply(strsplit(x, ";"), "[", 1L)[-1L]
 }
 
-# get_timestamps_1 -------------------------------------------------------------
-get_timestamps_1 <- function(x)
+# get_timestamps_flexim --------------------------------------------------------
+get_timestamps_flexim <- function(x)
 {
   start_row <- grep("^\\\\DATA", x)
   end_row <- grep("^\\\\END\\s*$", x)
