@@ -5,9 +5,7 @@
 #' Use readLogger_InSituInc_Aquatroll instead!
 #' 
 #' @param file full path to logger file
-#' 
 #' @export
-#' 
 read_aquatroll_data <- function(file)
 {
   x <- utils::read.csv(
@@ -49,30 +47,29 @@ read_aquatroll_data <- function(file)
 #'   advance to look for the header line. Default: 700
 #' @param model model of the Aquatroll (either "" or "600")
 #' @param dbg if \code{TRUE}, debug messages are shown
-#' 
+#' @param fileEncoding encoding of the input file. Default: "latin1"
 #' @return if model = "600" data frame with columns \code{DateTime}, 
 #'   \code{Seconds}, \code{Temp}, \code{ActCond}, \code{SpecCond},
 #'   \code{TDS}, \code{Resis}, \code{WaterD}, \code{DOC}, \code{DOP},
 #'   \code{Tur}, \code{Sal} otherwise data frame with columns
 #'   \code{DateTime}, \code{WaterTemp.C}, \code{SpecCond.uS}
-#'   
 #' @export
-#'   
 #' @examples 
 #' # set path to example file (contained in this package)
-#' files <- grep("Aquatroll", exampleLoggerFiles(), value=TRUE)
-#'   
+#' file_1 <- extdataFile("InSituInc/example_InSituInc_Aquatroll.csv")
+#' file_2 <- extdataFile("InSituInc/example_InSituInc_Aquatroll_600.csv")
+#' 
 #' # let's have a look on the file structure (read first 75 lines)
-#' cat(paste(readLines(files[1], 75), collapse = "\n"))
+#' writeLines(kwb.utils::readLinesWithEncoding(file_1, 75, fileEncoding = "latin1"))
 #'   
 #' # now read the file
-#' x <- readLogger_InSituInc_Aquatroll(csv = files[1])
+#' x <- readLogger_InSituInc_Aquatroll(csv = file_1)
 #'   
 #' # show the first lines
 #' head(x)
 #'   
 #' # Read a file of Aquatroll, model "600"
-#' x600 <- readLogger_InSituInc_Aquatroll(csv = files[2], model = "600")
+#' x600 <- readLogger_InSituInc_Aquatroll(csv = file_2, model = "600")
 #'   
 #' # show the first lines
 #' head(x600)
@@ -83,7 +80,8 @@ read_aquatroll_data <- function(file)
 readLogger_InSituInc_Aquatroll <- function(
   csv, headerPattern = NULL, 
   timestampFormat = c("%d.%m.%Y %H:%M:%S", "%d.%m.%Y%H:%M:%S"),
-  tz = "Etc/GMT+1", maxRowToLookForHeader = 700, model = "", dbg = FALSE
+  tz = "Etc/GMT+1", maxRowToLookForHeader = 700, model = "", dbg = FALSE,
+  fileEncoding = "latin1"
 )
 {
   #kwb.utils:::assignArgumentDefaults(kwb.logger::readLogger_InSituInc_Aquatroll)
@@ -123,26 +121,32 @@ readLogger_InSituInc_Aquatroll <- function(
   }
 
   dat <- kwb.utils::readCsvInputFile(
-    csv, sep = ";", dec = ".", headerPattern = headerPattern, 
-    maxRowToLookForHeader = maxRowToLookForHeader, columnDescription = coldesc, 
+    csv, 
+    sep = ";", 
+    dec = ".", 
+    headerPattern = headerPattern, 
+    maxRowToLookForHeader = maxRowToLookForHeader, 
+    columnDescription = coldesc, 
     na = c("0.000(ERR)", "                   0.000 (ERR)"),
-    stringsAsFactors = FALSE, fill = TRUE
+    stringsAsFactors = FALSE, 
+    fill = TRUE,
+    fileEncoding = fileEncoding
     #, encoding = "Latin-1"
   )
   
   format.ok <- kwb.datetime::matchingTimeFormat(
-    timestamp = dat$DateTime[1], timeFormats = timestampFormat
+    timestamp = dat$DateTime[1L], timeFormats = timestampFormat
   )
   
-  stopifnot(! is.null(format.ok))
+  stopifnot(!is.null(format.ok))
   
   # At the end of the table there may be a block of notes. We will find the
   # corresponding rows by checking if the values in the first column look
   # like timetamps
-  invalid <- ! kwb.datetime::hasTimeFormat(dat$DateTime, format.ok)
+  invalid <- !kwb.datetime::hasTimeFormat(dat$DateTime, format.ok)
   
   # We extract the invalid rows
-  dat <- dat[! invalid, ]
+  dat <- dat[!invalid, ]
   
   # Convert character timestamp to POSIXct
   dat$DateTime <- as.POSIXct(
