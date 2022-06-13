@@ -27,15 +27,17 @@ readLogger_PCE_PA8000(
 Read Logger File from PCE PA8000
 }
 \examples{
+\dontrun{
 # set path to example file (contained in this package)
-(filepath <- grep("PCE_PA8000", exampleLoggerFiles(), value = TRUE))
-  
+(file <- extdataFile("PCE/example_PCE_PA8000.txt"))
+
 # read the file
-x <- readLogger_PCE_PA8000(filepath)
+x <- readLogger_PCE_PA8000(file)
   
 # examine the structure of the result
 str(x)  
-  
+}
+
 }
 \references{
 \url{http://www.industrial-needs.com/manual/manual-pce-pa8000.pdf}

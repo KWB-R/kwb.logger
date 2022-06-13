@@ -31,14 +31,16 @@ readLogger_VEGA_BAR54(
 Read Logger File from VEGA BAR54
 }
 \examples{
+\dontrun{
 # set path to example file (contained in this package)
-(filepath <- grep("VEGA_BAR54[.]", exampleLoggerFiles(), value = TRUE))
-  
+(file <- extdataFile("VEGA/example_VEGA_BAR54.txt"))
+
 # read the file
-x <- readLogger_VEGA_BAR54(filepath)
+x <- readLogger_VEGA_BAR54(file)
   
 # examine the structure of the result
-str(x)  
+str(x)
+}
 
 }
 \references{

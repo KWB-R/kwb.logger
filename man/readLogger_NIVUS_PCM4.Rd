@@ -16,14 +16,16 @@ required not to be empty}
 Read Logger File from NIVUS PCM4
 }
 \examples{
+\dontrun{
 # set path to example file (contained in this package)
-filepath <- grep("NIVUS_PCM4", exampleLoggerFiles(), value = TRUE)[1]
-  
+file <- extdataFile("NIVUS/example_NIVUS_PCM4.TXT")
+
 # read the file
-x <- readLogger_NIVUS_PCM4(filepath)
+x <- readLogger_NIVUS_PCM4(file)
   
 # examine the list structure of the result
 str(x)  
+}
 
 }
 \references{

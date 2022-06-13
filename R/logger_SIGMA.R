@@ -13,18 +13,19 @@
 #' @export
 #' 
 #' @examples 
+#' \dontrun{
 #' # set path to example file (contained in this package)
-#' (filepath <- grep("SIGMA_SD900", exampleLoggerFiles(), value = TRUE))
-#'   
+#' file <- extdataFile("SIGMA/example_SIGMA_SD900.csv")
+#' 
 #' # read the file
-#' (samples <- readLogger_SIGMA_SD900(filepath))
+#' (samples <- readLogger_SIGMA_SD900(file))
 #'   
 #' # read only lines representing successful samples
-#' (samplesOk <- readLogger_SIGMA_SD900(filepath, successOnly = TRUE))
+#' (samplesOk <- readLogger_SIGMA_SD900(file, successOnly = TRUE))
 #'   
 #' # show metadata (given in attribute "metadata")
 #' kwb.utils::getAttribute(samplesOk, "metadata")    
-#' 
+#' }
 readLogger_SIGMA_SD900 <- function(
   filepath, successOnly = FALSE, sep = ",", 
   dateformat = .defaultTimeFormat("v6")
@@ -88,7 +89,7 @@ readLogger_SIGMA_SD900 <- function(
     filepath, sep = sep, nrows = headerLine - 1, fill = TRUE, header = FALSE,
     stringsAsFactors = FALSE
   )
-
+  
   # trim all values in all columns
   metadata[] <- lapply(metadata, kwb.utils::hsTrim)
   
@@ -101,13 +102,13 @@ readLogger_SIGMA_SD900 <- function(
   
   # remove special characters and non-alphanumeric characters
   keys <- gsub("[^a-zA-Z0-9_]", "", kwb.utils::substSpecialChars(keys))
-
+  
   # Assign key values back to metadata  
   metadata[[1L]] <- keys
-
+  
   # Delete empty columns    
   metadata <- kwb.utils::hsDelEmptyCols(metadata)  
-
+  
   # Create key = value list with keys from first and values from second column
   kwb.utils::toLookupList(data = metadata[, 1:2])
 }

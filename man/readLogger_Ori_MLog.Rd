@@ -28,14 +28,15 @@ readLogger_Ori_MLog(
 Read Water Level File from Radar Probe
 }
 \examples{
-  filepath <- grep("Ori_MLog", exampleLoggerFiles(), value=TRUE)[1]
+\dontrun{
+file <- extdataFile("Ori/example_Ori_MLog_1.csv")
   
-  # set separator different from default (tabulator) and do not complain
-  # about missing columns
-  x <- readLogger_Ori_MLog(filepath, sep=";", stopOnMissingColumns=FALSE)
+# set separator different from default (tabulator) and do not complain
+# about missing columns
+x <- readLogger_Ori_MLog(filepath, sep = ";", stopOnMissingColumns = FALSE)
   
-  str(x)
-  
+str(x)
+}
 }
 \references{
 \url{http://www.origmbh.de/fileadmin/user_upload/produkte/sensoren/DA_MLOG_Vega_Radar_Puls_61_en.pdf}

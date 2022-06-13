@@ -25,18 +25,19 @@ readLogger_SIGMA_SD900(
 Read Logger File from SIGMA_SD900
 }
 \examples{
+\dontrun{
 # set path to example file (contained in this package)
-(filepath <- grep("SIGMA_SD900", exampleLoggerFiles(), value = TRUE))
-  
+file <- extdataFile("SIGMA/example_SIGMA_SD900.csv")
+
 # read the file
-(samples <- readLogger_SIGMA_SD900(filepath))
+(samples <- readLogger_SIGMA_SD900(file))
   
 # read only lines representing successful samples
-(samplesOk <- readLogger_SIGMA_SD900(filepath, successOnly = TRUE))
+(samplesOk <- readLogger_SIGMA_SD900(file, successOnly = TRUE))
   
 # show metadata (given in attribute "metadata")
 kwb.utils::getAttribute(samplesOk, "metadata")    
-
+}
 }
 \references{
 \url{http://www.hach.com/asset-get.download.jsa?id=7639983273}

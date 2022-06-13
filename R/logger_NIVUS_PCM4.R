@@ -11,14 +11,16 @@
 #' @export
 #' 
 #' @examples 
+#' \dontrun{
 #' # set path to example file (contained in this package)
-#' filepath <- grep("NIVUS_PCM4", exampleLoggerFiles(), value = TRUE)[1]
-#'   
+#' file <- extdataFile("NIVUS/example_NIVUS_PCM4.TXT")
+#' 
 #' # read the file
-#' x <- readLogger_NIVUS_PCM4(filepath)
+#' x <- readLogger_NIVUS_PCM4(file)
 #'   
 #' # examine the list structure of the result
 #' str(x)  
+#' }
 #' 
 readLogger_NIVUS_PCM4 <- function(
   csv, completenessRequiredFor = c("DateTime", "H", "v")
@@ -65,13 +67,18 @@ readLogger_NIVUS_PCM4 <- function(
 #' @export
 #' 
 #' @examples 
+#' \dontrun{
 #' # set paths to example files (contained in this package)
-#' filepaths <- grep("NIVUS_PCM4", exampleLoggerFiles(), value = TRUE)[-1]
-#'   
+#' files <- c(
+#'   extdataFile("NIVUS/example_NIVUS_PCM4_ALT.TXT"),
+#'   extdataFile("NIVUS/example_NIVUS_PCM4_NEU.TXT"),
+#'   extdataFile("NIVUS/example_NIVUS_PCM4_STR.TXT")
+#' )
+#'  
 #' # read the files
-#' x1 <- readLogger_NIVUS_PCM4_2(filepaths[1])
-#' x2 <- readLogger_NIVUS_PCM4_2(filepaths[2])
-#' x3 <- readLogger_NIVUS_PCM4_2(filepaths[3])
+#' x1 <- readLogger_NIVUS_PCM4_2(files[1L])
+#' x2 <- readLogger_NIVUS_PCM4_2(files[2L])
+#' x3 <- readLogger_NIVUS_PCM4_2(files[3L])
 #'   
 #' # compare structures
 #' str(x1)
@@ -83,7 +90,7 @@ readLogger_NIVUS_PCM4 <- function(
 #'   
 #' # show time adjusts
 #' metadata$timeAdjust
-#'
+#' }
 readLogger_NIVUS_PCM4_2 <- function(
   filepath, headerRow = 9, sep = "\t", maxCols = 50, removeEmptyColumns = FALSE
 )

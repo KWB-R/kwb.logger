@@ -34,14 +34,14 @@ Read Logger File from FLEXIM F601
 }
 \examples{
 # Set path to example file (contained in this package)
-filename <- grep("FLEXIM_F601", exampleLoggerFiles(), value = TRUE)[2]
-  
+file <- extdataFile("FLEXIM/example_FLEXIM_F601_short.txt")
+   
 # Let's have a look on the file structure
-kwb.utils::catLines(readLines(filename))
+writeLines(readLines(file))
 
 \dontrun{   
 # Now read the file
-x <- readLogger_FLEXIM_F601(filename)
+x <- readLogger_FLEXIM_F601(file)
   
 # Show the first lines
 head(x)

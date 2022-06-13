@@ -43,24 +43,26 @@ readLogger_Ori_BasicEx1(
 Read Logger File from Ori BasicEx1
 }
 \examples{
+\dontrun{
 # set path to example file (contained in this package)
-(filepath <- grep("Ori_BasicEx1", exampleLoggerFiles(), value = TRUE)[1])
-  
+(file <- extdataFile("Ori/example_Ori_BasicEx1.csv"))
+
 # read the "actions" from the file
-readLogger_Ori_BasicEx1(filepath, infotype = "actions")
+readLogger_Ori_BasicEx1(file, infotype = "actions")
   
 # read the sample times from the file
 readLogger_Ori_BasicEx1(
-  filepath, infotype = "times", blockbegin = "ORI BasicEx1 TU Berlin"
+  file, infotype = "times", blockbegin = "ORI BasicEx1 TU Berlin"
 )
   
 # read both at the same time
 x <- readLogger_Ori_BasicEx1(
-  filepath, blockbegin = "ORI BasicEx1 TU Berlin"
+  file, blockbegin = "ORI BasicEx1 TU Berlin"
 )
   
 # examine the list structure of the result
 str(x)  
+}
 
 }
 \references{

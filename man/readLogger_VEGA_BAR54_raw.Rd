@@ -16,17 +16,19 @@ using \code{\link[kwb.utils]{hsTrim}})}
 Read Logger File from VEGA BAR54 raw
 }
 \examples{
+\dontrun{
 # set paths to example files (contained in this package)
-(filepaths <- grep("VEGA_BAR54_raw", exampleLoggerFiles(), value = TRUE))
-  
+file_1 <- extdataFile("VEGA/example_VEGA_BAR54_raw1.gnd")
+file_2 <- extdataFile("VEGA/example_VEGA_BAR54_raw2.gnd")
+
 # read the files
-x1 <- readLogger_VEGA_BAR54_raw(filepaths[1])
-x2 <- readLogger_VEGA_BAR54_raw(filepaths[2])
+x1 <- readLogger_VEGA_BAR54_raw(file_1)
+x2 <- readLogger_VEGA_BAR54_raw(file_2)
     
 # get meta data
 kwb.utils::getAttribute(x1, "metadata")
 kwb.utils::getAttribute(x2, "metadata")
-
+}
 }
 \seealso{
 \code{\link{readLogger_VEGA_BAR54}}
