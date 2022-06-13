@@ -1,16 +1,3 @@
-# exampleLoggerFiles -----------------------------------------------------------
-
-#' Example Logger Files
-#' 
-#' @return full path(s) to example file(s)
-#' @export
-#' 
-exampleLoggerFiles <- function()
-{
-  kwb.utils::warningDeprecated("exampleLoggerFiles", "extdataFile")
-  dir(extdataFile(), recursive = TRUE, full.names = TRUE)
-}
-
 # For a template of the following Roxygen documentation, see:
 # writeLines(readLines("../kwb.utils/R/createFunctionExtdataFile.R"))
 
