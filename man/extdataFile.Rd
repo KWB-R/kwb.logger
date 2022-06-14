@@ -4,7 +4,7 @@
 \alias{extdataFile}
 \title{Path to File in Installed Package}
 \usage{
-extdataFile(..., must_exist = TRUE)
+extdataFile(..., must_exist = TRUE, dbg = FALSE)
 }
 \arguments{
 \item{\dots}{parts of the file path to be passed to \code{\link{system.file}}}
