@@ -4,18 +4,8 @@
 
 test_that("readLogger_VEGA_BAR54_raw() works", {
 
-  expect_error(
-    kwb.logger:::readLogger_VEGA_BAR54_raw(filepath = 1)
-    # 'con' ist keine Verbindung
-  )
-   expect_error(
-    kwb.logger:::readLogger_VEGA_BAR54_raw(filepath = "a")
-    # kann Verbindung nicht ?ffnen
-  )
-   expect_error(
-    kwb.logger:::readLogger_VEGA_BAR54_raw(filepath = c("a", "b"))
-    # ung?ltiges 'description' Argument
-  )
+  f <- kwb.logger:::readLogger_VEGA_BAR54_raw
+  
+  expect_error(f())
 
 })
-
