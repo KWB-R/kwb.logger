@@ -6,10 +6,11 @@
 \usage{
 readLogger_NIVUS_PCM4_2(
   filepath,
-  headerRow = 9,
+  headerRow = 9L,
   sep = "\\t",
-  maxCols = 50,
-  removeEmptyColumns = FALSE
+  maxCols = 50L,
+  removeEmptyColumns = FALSE,
+  fileEncoding = "WINDOWS-1252"
 )
 }
 \arguments{
@@ -22,6 +23,9 @@ readLogger_NIVUS_PCM4_2(
 \item{maxCols}{maximum number of columns}
 
 \item{removeEmptyColumns}{if \code{TRUE} empty columns are removed}
+
+\item{fileEncoding}{Character encoding in which the file was stored. Default:
+"WINDOWS-1252"}
 }
 \description{
 Read Logger File from NIVUS PCM4

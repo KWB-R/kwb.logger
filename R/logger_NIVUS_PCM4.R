@@ -61,7 +61,8 @@ readLogger_NIVUS_PCM4 <- function(
 #' @param sep column separator
 #' @param maxCols maximum number of columns
 #' @param removeEmptyColumns if \code{TRUE} empty columns are removed
-#' 
+#' @param fileEncoding Character encoding in which the file was stored. Default:
+#'   "WINDOWS-1252"
 #' @references \url{http://www.nivus.de/ximages/1397007_p4ba02en.pdf}
 #' 
 #' @export
@@ -92,14 +93,24 @@ readLogger_NIVUS_PCM4 <- function(
 #' metadata$timeAdjust
 #' }
 readLogger_NIVUS_PCM4_2 <- function(
-  filepath, headerRow = 9, sep = "\t", maxCols = 50, removeEmptyColumns = FALSE
+  filepath, 
+  headerRow = 9L, 
+  sep = "\t", 
+  maxCols = 50L, 
+  removeEmptyColumns = FALSE,
+  fileEncoding = "WINDOWS-1252"
 )
 {
   headerPattern <- "^Datum\tUhrzeit"
   
   # header line is expected in line 9
-  headerLines <- readLines(filepath, n = 9)
-  headerLine <- utils::tail(headerLines, 1)
+  headerLines <- kwb.utils::readLinesWithEncoding(
+    filepath, 
+    n = headerRow, 
+    fileEncoding = fileEncoding
+  )
+  
+  headerLine <- utils::tail(headerLines, 1L)
   
   if (! grepl(headerPattern, headerLine)) {
     
