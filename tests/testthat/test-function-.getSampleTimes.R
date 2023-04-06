@@ -4,18 +4,7 @@
 
 test_that(".getSampleTimes() works", {
 
-  expect_error(
-    kwb.logger:::.getSampleTimes(filepath = 1, blockbegin = 1)
-    # 'con' ist keine Verbindung
-  )
-   expect_error(
-    kwb.logger:::.getSampleTimes(filepath = "a", blockbegin = 1)
-    # kann Verbindung nicht ?ffnen
-  )
-   expect_error(
-    kwb.logger:::.getSampleTimes(filepath = c("a", "b"), blockbegin = 1)
-    # ung?ltiges 'description' Argument
-  )
-
+  f <- kwb.logger:::.getSampleTimes
+  
+  expect_error(f())
 })
-

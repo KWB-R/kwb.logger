@@ -3,12 +3,7 @@
 
 #' Path to File in Installed Package
 #' 
-#' @param \dots parts of the file path to be passed to \code{\link{system.file}}
-#' @param must_exist if \code{TRUE} (the default) and the specified file does 
-#'   not exist, the program stops with an error message
-#' @return path to file in the package installation folder in the R library
-#'   or "" if the path does not exist
-#' @return path to the specified file
+#' @inheritParams kwb.utils::extdataFile
 #' @importFrom kwb.utils createFunctionExtdataFile
 #' @export
 #' @examples 
